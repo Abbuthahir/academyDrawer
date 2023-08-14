@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -6,7 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  backdropVisible = false;
 
-  constructor() {}
+  constructor(private changeDetectorRef: ChangeDetectorRef) { }
 
+
+  toggleBackdrop(isVisible: any) {
+    console.log('CHANGE', isVisible);
+    this.backdropVisible = isVisible;
+    this.changeDetectorRef.detectChanges;
+  }
 }
